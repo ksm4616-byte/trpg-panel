@@ -21,6 +21,19 @@ const SCENES: View[] = [
 const NOTES = ['전투가 열렸다', '재기로 숨을 고르고 털이꾼 1을 벴다', '털이꾼 2의 칼이 빗나갔다', '털이꾼 2를 베고 이겼다 — 경험치 +50']
 
 const step = atom({ plugin: 'trpg-panel', key: 'step' } as const, 0)
+// 게임 폴더에서만 켠다: 작업 폴더에 이 파일이 있을 때만 패널과 띠를 보인다.
+const MARKER = 'trpg-game.json'
+const isOn = atom({ plugin: 'trpg-panel', key: 'isOn' } as const, false)
+
+async function isGameFolder($: EngineInterface): Promise<boolean> {
+  try {
+    await $.fs.read(MARKER)
+
+    return true
+  } catch {
+    return false
+  }
+}
 
 function bar(now: number, max: number, width: number): string {
   const filled = max > 0 ? Math.round((Math.max(0, now) / max) * width) : 0
@@ -34,6 +47,11 @@ async function scene($: EngineInterface): Promise<View> {
 
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
+    const on = await isGameFolder($)
+    await update($, isOn, () => on)
+    if (!on) {
+      return next(e)  // 게임 폴더가 아니면 아무것도 보이지 않는다
+    }
     await $.command.register({ name: 'trpg-panel', description: '게임 상태판을 연다' })
     await $.command.register({ name: 'trpg-demo', description: '견본 장면을 다음으로 넘긴다' })
     const opened = await $.ui.open({ id: PANE, title: '새 땅' })
@@ -57,7 +75,7 @@ export const register: Register = on => {
 
   // 패널 자리가 없는 화면에서도 보이도록 입력창 위에 한 줄 띠를 그린다.
   on('ui.render', { component: 'AbovePrompt' }, async ($, e, next) => {
-    if (e.props.hasSurvey) {
+    if (e.props.hasSurvey || !(await read($, isOn))) {
       return next(e)
     }
     const v = await scene($)

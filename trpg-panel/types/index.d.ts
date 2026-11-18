@@ -18,6 +18,6 @@ export type View = {
 
 declare module 'claude-code' {
   interface PluginState {
-    'trpg-panel': { step: number }
+    'trpg-panel': { step: number; isOn: boolean }
   }
 }

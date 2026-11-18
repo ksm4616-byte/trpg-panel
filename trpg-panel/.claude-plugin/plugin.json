@@ -1,1 +1,1 @@
-{ "name": "trpg-panel", "version": "0.1.0", "description": "게임 상태판 시제품: 주인공의 상태와 전투 현황을 채팅 옆에 보인다", "types": "./types/index.d.ts" }
+{ "name": "trpg-panel", "version": "0.1.1", "description": "게임 상태판 시제품: 주인공의 상태와 전투 현황을 채팅 옆에 보인다", "types": "./types/index.d.ts" }
