@@ -1,0 +1,8 @@
+{
+  "name": "trpg-panel",
+  "description": "새 땅 — 게임 상태판 시제품",
+  "owner": { "name": "ksm4616-byte" },
+  "plugins": [
+    { "name": "trpg-panel", "source": "./trpg-panel", "description": "게임 상태판 시제품: 주인공의 상태와 전투 현황을 채팅 옆에 보인다" }
+  ]
+}
