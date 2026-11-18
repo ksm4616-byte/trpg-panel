@@ -47,9 +47,9 @@ async function scene($: EngineInterface): Promise<View> {
 
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
-    const on = await isGameFolder($)
-    await update($, isOn, () => on)
-    if (!on) {
+    const active = await isGameFolder($)
+    await update($, isOn, () => active)
+    if (!active) {
       return next(e)  // 게임 폴더가 아니면 아무것도 보이지 않는다
     }
     await $.command.register({ name: 'trpg-panel', description: '게임 상태판을 연다' })
