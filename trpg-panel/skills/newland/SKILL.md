@@ -22,7 +22,7 @@ description: 「새 땅」 TRPG 진행 — Claude가 진행자(GM), 게임 엔�
 2. `system`을 받아 읽고 그대로 따른다(진행자 지시문 전체). 거기의 「명령 X를 부른다」는 `call X <JSON>`이다. `tools`로 명령 목록을 받아 둔다.
 
 ## 새 게임
-저장이 없으면 `chargen`으로 고를 것을 받고, 사용자에게 **한 번에 하나씩** 묻는다(이름 → 종족 → 직업 → 배경 → 기술 → 동료 → 난이도, 「알아서」면 골라서 확인). `.newland/spec.json`에 쓰고 `new @.newland/spec.json`. 틀리면 엔진이 까닭을 준다.
+저장이 없으면 `chargen`으로 고를 것을 받고, 사용자에게 **한 번에 하나씩** 묻는다(이름 → 종족 → 직업 → 배경 → 기술 → 동료 → 난이도, 「알아서」면 골라서 확인). `.newland/spec.json`에 쓰고 `new @.newland/spec.json`. 틀리면 엔진이 까닭을 준다. `chargen`의 `fields`에 `carry`가 있으면 맨 먼저 「이어받아 시작할지」를 묻는다 — 이어받으면 이름·종족·성별·동료는 묻지 않고(엔진이 정한다) `"carry"`를 spec에 넣는다. `new`의 결과에 `opening` 글이 있으면 그 글을 한 글자도 바꾸지 않고 그대로 보인 뒤 사용자의 첫 입력을 기다린다.
 
 ## 한 턴
 1. 입력을 `.newland/input.txt`에 쓰고 `context @.newland/input.txt`.
