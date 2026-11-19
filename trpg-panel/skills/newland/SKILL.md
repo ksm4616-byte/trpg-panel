@@ -14,6 +14,9 @@ description: 「새 땅」 TRPG를 진행한다 — Claude가 진행자(GM)가 �
    { "engine": "C:/Games/NewLand/NewLand.exe", "save": ".newland/save.json" }
    ```
    (경로의 `\`는 `/`로 쓴다.)
+   - **게임 화면과 함께 쓰기(권장)**: `save`를 게임 화면이 쓰는 자동 저장 파일로 적으면, 게임 화면(NewLand.exe를 그냥 실행)에서 장비·주문 준비·지도·일행 창을 보고 바꾸고 이야기는 여기서 할 수 있다. 게임 화면은 이 저장이 바뀌면 저절로 다시 읽는다. 이야기는 게임 화면의 입력창이 아니라 여기서만 친다.
+     - 휴대 모드(NewLand.exe 옆에 `NewLand_data` 폴더가 있음): `"save": "<NewLand 폴더>/NewLand_data/save.json"`
+     - 그 밖: `"save": "C:/Users/<사용자 이름>/AppData/Roaming/Godot/app_userdata/새 땅/save.json"`
 2. 엔진 부르는 법(Bash 한 줄). 아래에서 `ENGINE`은 `"<engine 경로>" --headless --`, `SAVE`는 save 칸이다.
    ```bash
    mkdir -p .newland && "<engine>" --headless -- --cli SAVE <명령> <값…> --plugin --out .newland/out.txt; cat .newland/out.txt

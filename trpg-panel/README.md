@@ -16,6 +16,12 @@ Claude가 진행자(GM)가 되고, 규칙·주사위·전투·세계는 게임 �
    { "engine": "C:/Games/NewLand/NewLand.exe", "save": ".newland/save.json" }
    ```
 
+## 게임 화면과 함께 쓰기
+
+`trpg-game.json`의 `save`를 게임 화면의 자동 저장 파일로 적으면(휴대 모드면 `NewLand_data/save.json`),
+NewLand.exe 화면에서 장비·주문 준비·지도·일행 창을 쓰면서 이야기는 Claude Code에서 할 수 있습니다.
+게임 화면은 저장이 바뀌면 저절로 다시 읽습니다. 이 방식은 API 키가 필요 없습니다(게임 화면의 입력창은 쓰지 않습니다).
+
 ## 하는 법
 
 - `/newland` — 게임을 시작하거나 이어 합니다. 저장이 없으면 캐릭터 만들기부터 합니다.

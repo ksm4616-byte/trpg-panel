@@ -1,1 +1,1 @@
-{ "name": "trpg-panel", "version": "0.2.0", "description": "새 땅 — Claude가 진행자, 게임 엔진(NewLand.exe)이 규칙을 계산하는 1인 TRPG. /newland 로 시작하고, 채팅 옆에 상태판을 띄운다.", "types": "./types/index.d.ts" }
+{"name": "trpg-panel", "version": "0.2.1", "description": "새 땅 — Claude가 진행자, 게임 엔진(NewLand.exe)이 규칙을 계산하는 1인 TRPG. /newland 로 시작하고, 채팅 옆에 상태판을 띄운다.", "types": "./types/index.d.ts"}
