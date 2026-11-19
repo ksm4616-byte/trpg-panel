@@ -1,8 +1,14 @@
 {
   "name": "trpg-panel",
-  "description": "새 땅 — 게임 상태판 시제품",
-  "owner": { "name": "ksm4616-byte" },
+  "description": "새 땅 — Claude Code 플러그인판",
+  "owner": {
+    "name": "ksm4616-byte"
+  },
   "plugins": [
-    { "name": "trpg-panel", "source": "./trpg-panel", "description": "게임 상태판 시제품: 주인공의 상태와 전투 현황을 채팅 옆에 보인다" }
+    {
+      "name": "trpg-panel",
+      "source": "./trpg-panel",
+      "description": "새 땅: Claude가 진행자, 게임 엔진(NewLand.exe)이 규칙을 계산하는 1인 TRPG — /newland 와 상태판"
+    }
   ]
 }

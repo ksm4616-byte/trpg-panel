@@ -1,23 +1,18 @@
-export type Enemy = { label: string; hp: number; max: number; gap: string; state: string }
-export type View = {
-  ok: boolean
-  date: string
-  who: string
+// 엔진(ai/cli.gd)이 저장 파일 곁에 쓰는 panel.json 모양.
+export type Panel = {
+  name: string
   hp: number
-  hpMax: number
+  hp_max: number
   ac: number
-  xp: string
-  resources: string
-  money: string
-  rations: number
-  items: string
-  round: number
-  turn: string
-  enemies: Enemy[]
+  level: number
+  where: string
+  status: string
+  combat: string
+  party: string[]
 }
 
 declare module 'claude-code' {
   interface PluginState {
-    'trpg-panel': { step: number; isOn: boolean }
+    'trpg-panel': { panel: Panel | null; isOn: boolean }
   }
 }
